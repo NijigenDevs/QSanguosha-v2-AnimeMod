@@ -136,6 +136,17 @@ public:
     bool targetsFeasible(const QList<const Player *> &targets, const Player *Self) const;
 };
 
+class YouerCard : public SkillCard
+{
+    Q_OBJECT
+
+public:
+    Q_INVOKABLE YouerCard();
+
+    bool targetFilter(const QList<const Player *> &targets, const Player *to_select, const Player *Self) const;
+    void use(Room *room, ServerPlayer *source, QList<ServerPlayer *> &targets) const;
+};
+
 class NuequCard : public SkillCard
 {
     Q_OBJECT
@@ -209,6 +220,18 @@ class JiguanCard : public SkillCard
 public:
     Q_INVOKABLE JiguanCard();
 
+    void use(Room *room, ServerPlayer *source, QList<ServerPlayer *> &targets) const;
+};
+
+
+class PaojiCard : public SkillCard
+{
+    Q_OBJECT
+
+public:
+    Q_INVOKABLE PaojiCard();
+
+    bool targetFilter(const QList<const Player *> &targets, const Player *to_select, const Player *Self) const;
     void use(Room *room, ServerPlayer *source, QList<ServerPlayer *> &targets) const;
 };
 
